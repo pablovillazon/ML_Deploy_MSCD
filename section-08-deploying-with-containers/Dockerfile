@@ -17,8 +17,10 @@ RUN git clone https://github.com/pablovillazon/ML_Deploy_MSCD.git /opt/ML_Deploy
 #RUN git pull
 
 #COPY /ML_Deploy_MSCD/section-08-deploying-with-containers /opt
-WORKDIR /opt/ML_Deploy_MSCD/section-08-deploying-with-containers/house-prices-api
+WORKDIR /opt/ML_Deploy_MSCD/section-08-deploying-with-containers
+RUN git checkout mscd_pablo
 
+WORKDIR /opt/ML_Deploy_MSCD/section-08-deploying-with-containers/house-prices-api
 RUN pip install --upgrade pip
 #RUN pip install -r /opt/house-prices-api/requirements.txt
 RUN pip install -r /opt/ML_Deploy_MSCD/section-08-deploying-with-containers/house-prices-api/requirements.txt
