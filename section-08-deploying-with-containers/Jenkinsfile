@@ -17,9 +17,8 @@ pipeline{
         stage('TOX-Train model..'){
             steps{
                 echo "Deploying to test env..."
-                //sh "python section-05-production-model-package/regression_model/train_pipeline.py"
-                sh 'cd section-05-production-model-package/'
-                sh "python3 tox -e test_package"
+                //sh "python section-05-production-model-package/regression_model/train_pipeline.py"                
+                sh "python3 tox --workdir section-05-production-model-package/ -e test_package"
             }
         }
 
