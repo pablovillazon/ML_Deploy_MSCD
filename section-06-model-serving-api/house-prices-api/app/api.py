@@ -3,14 +3,14 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+
 from fastapi import APIRouter, HTTPException
 from fastapi.encoders import jsonable_encoder
 from loguru import logger
-from regression_model import __version__ as model_version
-from regression_model.predict import make_prediction
-
 from app import __version__, schemas
 from app.config import settings
+from regression_model import __version__ as model_version
+from regression_model.predict import make_prediction
 
 api_router = APIRouter()
 
@@ -21,7 +21,7 @@ def health() -> dict:
     Root Get
     """
     health = schemas.Health(
-        name=settings.PROJECT_NAME, api_version=__version__, model_version=model_version
+        name=settings.PROJECT_NAME, api_version="0.0.2", model_version=model_version
     )
 
     return health.dict()

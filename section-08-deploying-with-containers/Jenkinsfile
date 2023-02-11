@@ -14,10 +14,11 @@ pipeline{
             }
         }
         
-        stage('Build'){
+        stage('TOX-Train model..'){
             steps{
                 echo "Deploying to test env..."
-                sh "python section-05-production-model-package/regression_model/train_pipeline.py"
+                //sh "python section-05-production-model-package/regression_model/train_pipeline.py"
+                sh "tox -e train"
             }
         }
 
